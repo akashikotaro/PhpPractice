@@ -29,26 +29,28 @@
     $cnt3 = count($a) -2;
     $k = 0;
     $l = 0;
-    $m = 2;
+    $score[] = 0;
 
-    while($k <= $cnt3){
+    //var_dump($a);
+
+    while($k < $cnt3){
         while($l < $cnt2){
-            $score[$k] = $score[$k] + $X[$l] * $a[$k+2][$l];
+            $score[$k] += $X[$l] * $a[$k+2][$l];
             //echo $X[$l] ." " . $a[$k+2][$l] . "\n";
             $l++;
         }
         $l = 0;
-        $m++;
         $k++;
     }
 
-    $score = arsort($score);
+    //var_dump($a);
+    rsort($score);
+    //var_dump($score);
 
     $m = 0;
 
     while($m < $C[2]){
-        echo $score[$m];
+        echo round($score[$m]) . "\n";
         $m++;
     }
-
 ?>

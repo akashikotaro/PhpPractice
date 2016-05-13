@@ -13,26 +13,26 @@
 
     for($i=1;$i<=$line[0];$i++){
         $a = explode(".",$line[$i]);
+        $cnt = count($a);
+        $cnt2 = 0;
 
-        if(strlen($a[$k] < 4)){
+        if($cnt == 4){
             for($m=0;$m<4;$m++){
                 if(0 <= $a[$m] && $a[$m] <= 255){
-                    echo "True\n";
-                    echo $a[0]." ".$a[1]." ".$a[2]." ".$a[3];
-                    break;
+                    $cnt2 = $cnt2 + 1;
                 }else{
                     echo "False\n";
-                    echo $a[0]." ".$a[1]." ".$a[2]." ".$a[3];
+                    break;
+                }
+                if($cnt2 == 4){
+                    echo "True\n";
                     break;
                 }
             }
         }else{
             echo "False\n";
-            echo $a[0]." ".$a[1]." ".$a[2]." ".$a[3];
-            echo "strlen>4\n";
         }
 
-        $k++;
     }
 
 ?>
